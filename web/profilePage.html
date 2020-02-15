@@ -204,6 +204,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </form>
 </div>
 
+<!--EDIT EVENT POP-UP-->
+<div id="id02" class="profilemodal">
+  <form class="profilemodal-content animate" action="/action_page.php" method="post">
+      <div class="container">
+              <h1>Edit your event!</h1>
+              <hr>
+          
+              <label for="eventname"><b>Event Name</b></label>
+              <input type="text" placeholder="Enter the name of your event" name="eventname" required>
+          
+              <label for="eventdescription"><b>Event Description</b></label>
+              <input type="text" placeholder="Enter event description" name="eventdescription" required>
+          
+              <label for="eventdate"><b>Date</b></label>
+              <input type="date" id="evdate" name="eventdate" style="width:40%; margin-bottom: 15px; margin-top: 10px;">
+              
+              <label for="eventtime"><b>Time</b></label>
+              <input type="time" id="evtime" name="eventtime" style="width:40%; margin-bottom: 15px; margin-top: 10px;">
+              <br>
+              <label for="eventlocation" ><b>Event Location</b></label>
+              <input type="text" placeholder="Enter the location of your event" name="eventlocation" required>
+          
+              <label for="eventkeywords"><b>Keywords</b></label>
+              <input type="text" placeholder="Enter any keywords" name="eventkeywords" required>
+          
+              <button type="submit" class="editbtn" style="width:100%">Submit</button>
+        </div>
+  </form>
+</div>
+
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'Hosted')">Hosted Events</button>
       <button class="tablinks" onclick="openCity(event, 'Registered')">Registered Events</button>
@@ -225,7 +255,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <br>Time:
           <br> Location:
           </p>
-          <button class="editbtn" style="width:100%"><b>Edit</b></button>
+          <button class="editbtn" onclick="document.getElementById('id02').style.display='block'" style="width:100%"><b>Edit</b></button>
         <!-- TODO: ADD KEYWORDS (Optional) -->
       </div>
     </div>
@@ -239,7 +269,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <br>Time:
           <br> Location:
           </p>
-          <button class="editbtn" style="width:100%"><b>Edit</b></button>
+          <button class="editbtn" onclick="document.getElementById('id02').style.display='block'" style="width:100%"><b>Edit</b></button>
          <!-- TODO: ADD KEYWORDS (Optional) -->
         </div>
     </div>
@@ -253,7 +283,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <br>Time:
           <br> Location:
           </p>
-          <button class="editbtn" style="width:100%"><b>Edit</b></button>
+          <button class="editbtn" onclick="document.getElementById('id02').style.display='block'" style="width:100%"><b>Edit</b></button>
           <!-- TODO: ADD KEYWORDS (Optional) -->
         </div>
     </div>
@@ -384,12 +414,16 @@ function myFunction() {
 
   //Script for Create Event modal
   // Get the modal
-  var modal = document.getElementById('id01');
+  var modal1 = document.getElementById('id01');
+  var modal2 = document.getElementById('id02');
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+    if (event.target == modal2) {
+      modal2.style.display = "none";
     }
   }
 
