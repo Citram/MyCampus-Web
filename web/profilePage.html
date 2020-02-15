@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3schools.css">
 <link rel="stylesheet" href="fontRaleway.css">
+<link rel="stylesheet" href="modal.css">
 <!--TODO: Remove if icons work <link rel="stylesheet" href="font-awesome.min.css"> -->
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
@@ -145,7 +146,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
   </center>
   <div class="w3-panel w3-large">
-      <button class="createbtn" style="width:100%">Create New Event!</button>
+      <button class="createbtn" onclick="document.getElementById('id01').style.display='block'"
+      style="width:100%">Create New Event!</button>
   </div>
   <!--TODO: Display Followers and Following -->
 </nav>
@@ -171,6 +173,36 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <button class="w3-button w3-white w3-hide-small"><i class="fas fa-cocktail"></i> Social</button>
       <!--We can add more filter categories-->
     </div>
+
+     <!--CREATE NEW EVENT BUTTON MODAL-->
+<div id="id01" class="profilemodal">
+  <form class="profilemodal-content animate" action="/action_page.php" method="post">
+      <div class="container">
+              <h1>Create an event!</h1>
+              <hr>
+          
+              <label for="eventname"><b>Event Name</b></label>
+              <input type="text" placeholder="Enter the name of your event" name="eventname" required>
+          
+              <label for="eventdescription"><b>Event Description</b></label>
+              <input type="text" placeholder="Enter event description" name="eventdescription" required>
+          
+              <label for="eventdate"><b>Date</b></label>
+              <input type="date" id="evdate" name="eventdate" style="width:40%; margin-bottom: 15px; margin-top: 10px;">
+              
+              <label for="eventtime"><b>Time</b></label>
+              <input type="time" id="evtime" name="eventtime" style="width:40%; margin-bottom: 15px; margin-top: 10px;">
+              <br>
+              <label for="eventlocation" ><b>Event Location</b></label>
+              <input type="text" placeholder="Enter the location of your event" name="eventlocation" required>
+          
+              <label for="eventkeywords"><b>Keywords</b></label>
+              <input type="text" placeholder="Enter any keywords" name="eventkeywords" required>
+          
+              <button type="submit" class="createbtn" style="width:100%">Create Event</button>
+        </div>
+  </form>
+</div>
 
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'Hosted')">Hosted Events</button>
@@ -347,10 +379,20 @@ function myFunction() {
       li[i].style.display = "none";
     }
   }
-
+}
   // TODO: implement for Registered 
 
-}
+  //Script for Create Event modal
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
 
 //TODO: implement filtering script 
 
